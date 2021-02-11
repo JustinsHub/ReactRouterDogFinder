@@ -1,11 +1,19 @@
-import React from 'react'
+import React from "react"
+import {NavLink} from "react-router-dom"
 
-const Nav = () => {
-    return (
-        <div>
 
-        </div>
-    )
+function NavBar({dogs}) {
+const links = dogs.map(dog => (
+    <NavLink key={dog.name} to={`/dogs/${dog.name.toLowerCase()}`} >
+    {dog.name}
+    </NavLink>
+));
+return (
+    <nav>
+    <NavLink exact to="/dogs">Home</NavLink>
+    {links}
+    </nav>
+);
 }
 
-export default Nav
+export default NavBar;
